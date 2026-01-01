@@ -106,3 +106,64 @@
 | Charges    | No compute cost | No cost                 |
 | Data       | Safe            | Lost (unless backed up) |
 
+## ✅ VPC
+## 1. What is a VPC?
+### Ans: VPC (Virtual Private Cloud) is a logically isolated virtual network in AWS where you can launch AWS resources like EC2, RDS, and ELB.
+### You control:
+  * IP address range (CIDR)
+  * Subnets
+  * Route tables
+  * Internet & NAT gateways
+  * Security (SG, NACL)
+
+## 2. Difference between Public and Private Subnet?
+### Ans:
+| Feature         | Public Subnet             | Private Subnet          |
+| --------------- | ------------------------- | ----------------------- |
+| Internet access | Yes                       | No (directly)           |
+| Route to IGW    | Yes                       | No                      |
+| Public IP       | Yes                       | No                      |
+| Use case        | Web servers, ALB, Bastion | DB servers, App servers |
+
+## 3. What is an Internet Gateway (IGW)?
+### Ans: An Internet Gateway is a VPC component that allows communication between instances in a public subnet and the internet.
+### Functions:
+  * Enables incoming and outgoing internet traffic
+  * Supports IPv4 and IPv6
+  * Required for public EC2 instances
+
+## 4. What is a NAT Gateway and why is it used?
+### Ans: A NAT Gateway allows instances in a private subnet to:
+  * Access the internet outbound only
+  * Prevent inbound traffic from the internet
+
+### Why used?
+  * OS updates
+  * Download packages
+  * Access AWS services
+
+## 5. Difference between Security Group and NACL?
+| Feature    | Security Group | NACL              |
+| ---------- | -------------- | ----------------- |
+| Level      | Instance       | Subnet            |
+| Stateful   | Yes            | No                |
+| Rules      | Allow only     | Allow & Deny      |
+| Rule order | Not applicable | Rule number based |
+| Default    | Deny inbound   | Allow all         |
+
+## 6. What is a Route Table?
+### Ans: A Route Table defines how network traffic is directed within a VPC.
+### Example routes:
+  * 0.0.0.0/0 → IGW (public subnet)
+  * 0.0.0.0/0 → NAT Gateway (private subnet)
+  * VPC CIDR → local (internal traffic)
+  * 📌 Every subnet must be associated with a route table.
+
+## 7. How do instances in a private subnet access the internet?
+### Ans: Through a NAT Gateway (or NAT Instance).
+### Flow:
+* Private EC2 → Route Table → NAT Gateway → Internet Gateway → Internet
+### Steps:
+  * NAT Gateway in public subnet
+  * Private subnet route table points 0.0.0.0/0 to NAT Gateway
+  * NAT Gateway routes traffic via IGW
