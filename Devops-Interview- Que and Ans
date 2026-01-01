@@ -1,1 +1,20 @@
 # Devops Interview Questions And Answer
+## 1. What is EC2 and what are its instance types?
+### Ans: Amazon EC2 (Elastic Compute Cloud) is an AWS service that provides resizable virtual servers in the cloud to run applications.
+### EC2 Instance Types:
+### AWS offers different instance families based on workload:
+* General Purpose – Balanced CPU, memory, networking
+👉 t2, t3, t4g, m5, m6
+* Used for web apps, dev/test, small databases
+* Compute Optimized – High CPU performance
+👉 c5, c6
+* Used for batch processing, gaming servers
+* Memory Optimized – High RAM
+👉 r5, x1
+* Used for databases, in-memory caching
+* Storage Optimized – High IOPS and throughput
+👉 i3, d2
+* Used for data warehousing, log processing
+* Accelerated Computing – GPU/FPGA
+👉 p, g, f1
+* Used for ML, AI, video rendering
