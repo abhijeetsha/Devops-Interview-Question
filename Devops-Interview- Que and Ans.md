@@ -1,5 +1,5 @@
 # Devops Interview Questions And Answer
-✅ EC2
+## ✅ EC2
 ## 1. What is EC2 and what are its instance types?
 ### Ans: Amazon EC2 (Elastic Compute Cloud) is an AWS service that provides resizable virtual servers in the cloud to run applications.
 ### EC2 Instance Types:
