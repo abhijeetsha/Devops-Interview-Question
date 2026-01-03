@@ -3,7 +3,7 @@
 ## ✅ Basic Linux Questions
 
 ## 1) What is Linux?
-### Ans: Linux is an open-source, Unix-like operating system used to manage computer hardware and software resources.It is widely used in servers, cloud platforms, DevOps, embedded systems, and supercomputers.
+### Ans: Linux is an open-source operating system where the kernel manages hardware, and users interact using the shell through a terminal.
 
 ## 2) Difference between Linux and Windows?
 ### Ans: 
