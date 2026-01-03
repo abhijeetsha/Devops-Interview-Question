@@ -1,6 +1,43 @@
-## ✅ DEVOPS Interview Questions And Answer ✅
+# ✅ DEVOPS Interview Questions And Answer ✅
 
-## 🔹 Docker Interview Questions
+## ✅ What is Devops?
+### Ans: DevOps is a culture and set of practices that combines development and operations to automate and improve software delivery through CI/CD, infrastructure as code, and continuous monitoring.
+
+## 🔹 Why is DevOps used?
+### Ans: DevOps helps to:
+* Automate software delivery
+* Improve collaboration between teams
+* Reduce deployment failures
+* Enable faster releases
+* Improve system reliability
+
+## 🔹 Key Principles of DevOps
+### Ans: 
+* Automation
+* Continuous Integration & Continuous Delivery (CI/CD)
+* Infrastructure as Code (IaC)
+* Monitoring & Logging
+* Collaboration & Feedback
+
+## 🔹 DevOps Lifecycle
+### Ans: Plan
+* Code
+* Build
+* Test
+* Release
+* Deploy
+* Operate
+* Monitor
+
+## 🔹 Common DevOps Tools
+### Ans: 
+* CI/CD: Jenkins, GitHub Actions, GitLab CI
+* Containers: Docker, Kubernetes
+* Cloud: AWS, Azure, GCP
+* IaC: Terraform, Ansible
+* Monitoring: Prometheus, Grafana
+
+## ✅ Docker Interview Questions
 ## 1) What is Docker?
 ### Ans: Docker is a containerization platform that allows developers to package an application along with its dependencies into a container.
 Containers run consistently across different environments like development, testing, and production.
@@ -71,7 +108,7 @@ Containers run consistently across different environments like development, test
   * Single command to start services
   * Ideal for microservices
 
-## 🔹 Kubernetes Interview Questions (EKS Preferred)
+## ✅ Kubernetes Interview Questions (EKS Preferred)
 ## 1) What is Kubernetes and why is it used?
 ### Ans: Kubernetes is an open-source container orchestration platform used to deploy, manage, scale, and operate containerized applications.
 ### It is used for:
@@ -177,7 +214,7 @@ Containers run consistently across different environments like development, test
 4️⃣ Port Forwarding
 → Debugging only
 
-## 🔹 Terraform (Infrastructure as Code)
+## ✅ Terraform (Infrastructure as Code)
 ## 1) What is Terraform?
 ### Ans: Terraform is an Infrastructure as Code (IaC) tool by HashiCorp used to provision, manage, and version infrastructure using declarative configuration files.
 ### It supports:
@@ -279,7 +316,7 @@ Containers run consistently across different environments like development, test
 * Restore state from backup
 * Use terraform import
 
-## 🔹 CI/CD Interview Questions
+## ✅ CI/CD Interview Questions
 ## 1) What is CI/CD?
 ### Ans: CI/CD stands for Continuous Integration and Continuous Deployment/Delivery.
 * CI: Automatically build & test code
