@@ -449,5 +449,180 @@
   * Pod accessing Secrets Manager
 
 # ✅ DEVOPS Interview Questions And Answer ✅
+
 ## 🔹 Docker Interview Questions
-## 
+## 1) What is Docker?
+### Ans: Docker is a containerization platform that allows developers to package an application along with its dependencies into a container.
+Containers run consistently across different environments like development, testing, and production.
+
+## 2) Difference between Docker Image and Docker Container?
+### Ans:
+| Docker Image              | Docker Container              |
+| ------------------------- | ----------------------------- |
+| Read-only template        | Running instance of an image  |
+| Used to create containers | Executes the application      |
+| Stored in Docker registry | Runs in memory                |
+| Example: `nginx:latest`   | Example: Running nginx server |
+
+## 3) What is a Dockerfile?
+### A Dockerfile is a text file containing instructions to build a Docker image.
+### It defines:
+* Base image
+* Application code
+* Dependencies
+* Commands to run the app
+
+## 4) Difference between CMD and ENTRYPOINT?
+### Ans: Use ENTRYPOINT for the main command and CMD for default arguments.
+| CMD                          | ENTRYPOINT              |
+| ---------------------------- | ----------------------- |
+| Provides default command     | Defines main executable |
+| Can be overridden easily     | Harder to override      |
+| Used for optional parameters | Used for fixed commands |
+
+## 5) What is a Docker Volume?
+### Ans: Docker volume is a persistent storage mechanism used to store data outside the container lifecycle. Even if a container is deleted, the data remains.
+### Use cases:
+  * Database storage
+  * Logs
+  * Shared data between containers
+
+## 6) Difference between COPY and ADD?
+### Ans: Recommendation: Use COPY unless ADD features are required.
+| COPY                         | ADD                     |
+| ---------------------------- | ----------------------- |
+| Copies files/directories     | Copies + extra features |
+| Simple and predictable       | Can extract tar files   |
+| Preferred for most use cases | Supports URLs           |
+| Best practice                | Use only if needed      |
+
+## 7) How do you reduce Docker image size?
+### Ans: 
+  * Use lightweight base images (e.g., alpine)
+  * Use multi-stage builds
+  * Remove unnecessary packages
+  * Combine RUN commands
+  * Clean cache (apt-get clean)
+  * Use .dockerignore
+
+## 8) What is Docker Networking?
+### Ans: Docker networking enables communication between containers, the host, and external systems.
+### Types of Docker networks:
+  * Bridge (default)
+  * Host
+  * None
+  * Overlay (Swarm/Kubernetes)
+### Containers in the same network can communicate using container names.
+
+## 9) What is Docker Compose?
+### Ans: Docker Compose is a tool used to define and run multi-container applications using a docker-compose.yml file.
+### Benefits:
+  * Easy multi-container setup
+  * Single command to start services
+  * Ideal for microservices
+
+## 🔹 Kubernetes Interview Questions (EKS Preferred)
+## 1) What is Kubernetes and why is it used?
+### Ans: Kubernetes is an open-source container orchestration platform used to deploy, manage, scale, and operate containerized applications.
+### It is used for:
+  * Automatic scaling
+  * High availability
+  * Self-healing
+  * Rolling updates & rollbacks
+  * Managing microservices
+  👉 EKS (Elastic Kubernetes Service) is AWS’s managed Kubernetes service where AWS manages the control plane.
+
+## 2) What is a Pod?
+### Ans: A Pod is the smallest deployable unit in Kubernetes.
+  * Contains one or more containers
+  * Containers in a Pod share:
+    * Same network (IP & port space)
+    * Same storage volumes
+  * Pods are ephemeral (not permanent)
+
+## 3) Difference between Deployment, StatefulSet, and DaemonSet?
+### Ans: 
+| Feature      | Deployment     | StatefulSet        | DaemonSet               |
+| ------------ | -------------- | ------------------ | ----------------------- |
+| Use case     | Stateless apps | Stateful apps      | Node-level services     |
+| Pod identity | Random         | Stable & unique    | One pod per node        |
+| Storage      | Shared         | Persistent per pod | Optional                |
+| Examples     | Web apps       | DB, Kafka          | Logs, monitoring agents |
+
+## 4) What is Deployment Stategies And Tyoes..?
+### Ans: Four Tyoes of Deployment Strategy given below
+| Strategy       | Downtime | Risk     | Complexity |
+| -------------- | -------- | -------- | ---------- |
+| Rolling Update | ❌ No     | Low      | Low        |
+| Recreate       | ✅ Yes    | Medium   | Very Low   |
+| Blue-Green     | ❌ No     | Very Low | Medium     |
+| Canary         | ❌ No     | Very Low | High       |
+| A/B Testing    | ❌ No     | Low      | High       |
+
+## 5) What is a Service and its types?
+### Ans: A Service provides a stable network endpoint to access Pods.
+### Types of Services:
+  * ClusterIP – Internal access (default)
+  * NodePort – Exposes app on node IP & port
+  * LoadBalancer – Uses cloud load balancer (AWS ELB/NLB)
+  * ExternalName – Maps to external DNS
+
+## 6) Difference between ConfigMap and Secret?
+### Ans: In EKS, Secrets can be integrated with AWS Secrets Manager.
+| ConfigMap                 | Secret                   |
+| ------------------------- | ------------------------ |
+| Stores non-sensitive data | Stores sensitive data    |
+| Plain text                | Base64 encoded           |
+| App configs               | Passwords, tokens        |
+| No encryption by default  | Can be encrypted at rest |
+
+## 7) What is Ingress?
+### Ans: Ingress manages external HTTP/HTTPS access to Kubernetes services.
+  * Works with an Ingress Controller
+  * Supports:
+    * Path-based routing
+    * Host-based routing
+    * SSL/TLS termination
+    * 👉 In EKS, commonly used:
+    * AWS Load Balancer Controller (ALB Ingress)
+
+## 8) What is HPA (Horizontal Pod Autoscaler)?
+### Ans: HPA automatically scales the number of Pods based on:
+  * CPU utilization
+  * Memory utilization
+  * Custom metrics
+### Example:
+  * Scale pods from 2 → 10 when CPU > 70%
+
+## 9) How does Kubernetes handle pod failure?
+### Ans: Kubernetes provides self-healing:
+* If a Pod crashes → recreated automatically
+* If a node fails → Pods are rescheduled on other nodes
+* Uses:
+  * Liveness & Readiness probes
+  * ReplicaSets
+
+## 10) How does Kubernetes perform rolling updates?
+### Ans: Rolling updates update Pods gradually without downtime.
+### Process:
+  * Create new Pods with updated version
+  * Terminate old Pods slowly
+  * Controlled using:
+  * maxSurge
+  * maxUnavailable
+### Supports rollback if deployment fails.
+
+## 11) How do you expose applications running in EKS?
+### Ans: You can expose apps using:
+
+1️⃣ Service type LoadBalancer
+→ Creates AWS ELB/NLB
+
+2️⃣ Ingress (ALB)
+→ Recommended for production
+
+3️⃣ NodePort
+→ Mostly for testing
+
+4️⃣ Port Forwarding
+→ Debugging only
