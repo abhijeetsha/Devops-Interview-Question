@@ -1,5 +1,38 @@
 # Devops Interview Questions And Answer
 # ✅ AWS Interview Questions And Answer ✅
+## ✅ What is AWS?
+### Ans: AWS (Amazon Web Services) is a cloud computing platform provided by Amazon that offers on-demand IT services over the internet.
+### AWS provides services like:
+* Compute (EC2, Lambda)
+* Storage (S3, EBS)
+* Databases (RDS, DynamoDB)
+* Networking (VPC, Load Balancer)
+* Security (IAM)
+🔹 Key benefit: You don’t need to buy or manage physical servers—AWS handles the infrastructure.
+
+## ⭐ Interview Tip (Short Answer)
+### Ans: AWS is a cloud platform that provides on-demand infrastructure and services over the internet, enabling scalable, secure, and cost-effective application deployment.
+
+## ✅ What is Cloud or Cloud Platform?
+### Ans: A cloud platform is an environment that provides computing resources over the internet instead of on-premises data centers.
+### These resources include:
+* Servers
+* Storage
+* Databases
+* Networking
+* Software & tools
+* Users can access and manage these resources on demand and pay only for what they use.
+
+## 🔹 Types of Cloud Services:
+* IaaS (Infrastructure as a Service) – EC2, VPC
+* PaaS (Platform as a Service) – Elastic Beanstalk
+* SaaS (Software as a Service) – Gmail, Office 365
+
+## 🔹 Types of Cloud Deployment:
+* Public Cloud – AWS, Azure, GCP
+* Private Cloud – Internal data center
+* Hybrid Cloud – Combination of both
+
 ## ✅ EC2
 ## 1. What is EC2 and what are its instance types?
 ### Ans: Amazon EC2 (Elastic Compute Cloud) is an AWS service that provides resizable virtual servers in the cloud to run applications.
