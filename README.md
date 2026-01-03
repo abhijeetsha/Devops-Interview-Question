@@ -1,208 +1,170 @@
-# Devops-Interview-Question
-## 🔹 AWS Interview Questions
-## ✅ EC2
+✅ Linux Interview Questions
+🔹 Basic Linux Questions
 
-What is EC2 and what are its instance types?
+What is Linux?
 
-Difference between On-Demand, Reserved, and Spot instances?
+Difference between Linux and Windows?
 
-How do you secure EC2 instances?
+What is the Linux kernel?
 
-What is a Security Group and how is it different from NACL?
+What is a shell?
 
-How do you attach additional EBS volumes to an EC2 instance?
+What are the different Linux distributions?
 
-How do you take backup of EC2?
+What is the root user?
 
-What happens when an EC2 instance is stopped vs terminated?
+What is the home directory?
 
-## ✅ VPC
+Difference between CLI and GUI?
 
-What is a VPC?
+What is open source?
 
-Difference between public and private subnet?
+What is a terminal?
 
-What is an Internet Gateway?
+🔹 File & Directory Management
 
-What is a NAT Gateway and why is it used?
+What is the Linux file system hierarchy?
 
-Difference between Security Group and NACL?
+Difference between absolute and relative path?
 
-What is Route Table?
+What are file permissions?
 
-How do instances in a private subnet access the internet?
+Explain rwx permissions?
 
-## ✅ S3
+Difference between file and directory permissions?
 
-What is Amazon S3?
+What is umask?
 
-Difference between S3 and EBS?
+Difference between soft link and hard link?
 
-What are S3 storage classes?
+How do you find a file in Linux?
 
-How do you secure an S3 bucket?
+How do you check file size?
 
-What is S3 versioning?
+What is inode?
 
-What is S3 lifecycle policy?
+🔹 User & Permission Management
 
-Can S3 be used for hosting a static website?
+How do you create and delete users?
 
-## ✅ IAM
+What is /etc/passwd and /etc/shadow?
 
-What is IAM?
+What is a group?
 
-Difference between IAM User, Group, Role?
+What is sudo?
 
-What is an IAM Role and where is it used?
+Difference between su and sudo?
 
-What is the principle of least privilege?
+How do you change file ownership?
 
-Difference between inline and managed policies?
+What is chmod, chown, and chgrp?
 
-How do EC2 instances access S3 securely without credentials?
+🔹 Process & System Management
 
-## ✅ RDS
+What is a process?
 
-What is Amazon RDS?
+Difference between process and thread?
 
-Difference between RDS and EC2-hosted DB?
+What is PID?
 
-What is Multi-AZ deployment?
+What is zombie process?
 
-What is Read Replica?
+What is orphan process?
 
-How do you take RDS backups?
+Difference between ps, top, and htop?
 
-How do you secure RDS?
+How do you kill a process?
 
-## ✅ EKS
+What is nice and renice?
 
-What is Amazon EKS?
+🔹 Disk & Memory Management
 
-Difference between EKS and self-managed Kubernetes?
+How do you check disk usage?
 
-What are node groups?
+What is LVM?
 
-How does EKS authentication work?
+Difference between ext4 and xfs?
 
-How do you upgrade an EKS cluster?
+What is swap memory?
 
-What is IRSA (IAM Roles for Service Accounts)?
+How do you check memory usage?
 
-## 🔹 Docker Interview Questions
+What is mount and unmount?
 
-What is Docker?
+What is /etc/fstab?
 
-Difference between Docker image and container?
+🔹 Networking
 
-What is a Dockerfile?
+How do you check IP address?
 
-Difference between CMD and ENTRYPOINT?
+Difference between ping and traceroute?
 
-What is Docker volume?
+How do you check open ports?
 
-Difference between COPY and ADD?
+What is DNS?
 
-How do you reduce Docker image size?
+What is SSH?
 
-What is Docker networking?
+What is SCP and RSYNC?
 
-What is Docker Compose?
+Difference between TCP and UDP?
 
-## 🔹 Kubernetes Interview Questions (EKS Preferred)
+🔹 Package Management
 
-What is Kubernetes and why is it used?
+What is a package manager?
 
-What is a Pod?
+Difference between yum, dnf, and apt?
 
-Difference between Deployment, StatefulSet, and DaemonSet?
+How do you install and remove packages?
 
-What is a Service and its types?
+What is a repository?
 
-Difference between ConfigMap and Secret?
+🔹 Booting & Services
 
-What is Ingress?
+What is BIOS and UEFI?
 
-What is HPA (Horizontal Pod Autoscaler)?
+What is GRUB?
 
-How does Kubernetes handle pod failure?
+What is systemd?
 
-How does Kubernetes perform rolling updates?
+What is a service?
 
-How do you expose applications running in EKS?
+How do you start, stop, and restart services?
 
-## 🔹 Terraform (Infrastructure as Code)
+Difference between runlevels and targets?
 
-What is Terraform?
+🔹 Logs & Monitoring
 
-What is Infrastructure as Code?
+Where are Linux logs stored?
 
-What are Terraform providers?
+What is journald?
 
-Difference between resource and data source?
+How do you check system logs?
 
-What is Terraform state?
+What is dmesg?
 
-Where do you store Terraform state in production?
+🔹 Shell Scripting
 
-What is remote backend?
+What is a shell script?
 
-Difference between terraform plan and apply?
+Difference between bash and sh?
 
-What is a Terraform module?
+What is a shebang?
 
-What are workspaces?
+How do you pass arguments to a script?
 
-How do you manage secrets in Terraform?
+What is cron and crontab?
 
-What happens if Terraform state is deleted?
+What is environment variable?
 
-##🔹 CI/CD Interview Questions
-## ✅ Jenkins
+🔹 Troubleshooting (Scenario-Based ⭐)
 
-What is Jenkins?
+Server is slow – how do you troubleshoot?
 
-What is a Jenkins pipeline?
+Disk is full – what steps do you take?
 
-Difference between Declarative and Scripted pipeline?
+Service is not starting – how do you debug?
 
-What is a Jenkinsfile?
+User cannot login – how do you fix?
 
-How do you secure Jenkins?
-
-How do you integrate Jenkins with Git?
-
-How do you deploy applications using Jenkins?
-
-## ✅ GitHub Actions / GitLab CI
-
-What is CI/CD?
-
-Difference between GitHub Actions and Jenkins?
-
-What is a workflow in GitHub Actions?
-
-What are runners?
-
-What is a pipeline in GitLab CI?
-
-How do you store secrets in CI/CD?
-
-How do you implement rollback in CI/CD?
-
-How do you deploy to AWS using CI/CD?
-
-##🔹 Scenario-Based (Very Important ⭐)
-
-How would you deploy a Java application on AWS using Docker & Kubernetes?
-
-How do you design high availability architecture in AWS?
-
-How do you automate infrastructure creation using Terraform?
-
-How do you implement zero-downtime deployment?
-
-How do you troubleshoot a pod not starting?
-
-How do you secure CI/CD pipelines?
+SSH connection refused – how do you troubleshoot?
