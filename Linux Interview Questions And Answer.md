@@ -230,4 +230,64 @@
 * chown user file.txt
 * chgrp dev file.txt
 
+## ✅ Process & System Management
+
+## 1) What is a process?
+### Ans: A process is an instance of a running program.
+### It includes:
+* Program code
+* Memory
+* CPU usage
+* Open files
+* Environment variables
+### Each process in Linux has a unique ID (PID).
+
+## 2) Difference between process and thread?
+### Ans: 
+| Process                       | Thread                            |
+| ----------------------------- | --------------------------------- |
+| Independent program execution | Lightweight unit inside a process |
+| Has its own memory space      | Shares memory with other threads  |
+| More resource usage           | Less resource usage               |
+| Slower context switching      | Faster context switching          |
+
+
+## 3) What is PID?
+### Ans: PID (Process ID) is a unique number assigned to each process by the Linux kernel.
+### It is used to:
+* Track processes
+* Control or terminate processes
+
+## 4) What is zombie process?
+### Ans: A zombie process is a process that has completed execution but still has an entry in the process table.
+* Occurs when parent does not collect child’s exit status
+* Identified by state Z
+* Consumes no resources except PID
+
+## 5) What is orphan process?
+### Ans: An orphan process is a running process whose parent process has terminated.
+* Adopted by init or systemd
+* Continues running normally
+
+## 6) Difference between ps, top, and htop?
+### Ans: 
+| Command | Description                         |
+| ------- | ----------------------------------- |
+| `ps`    | Static snapshot of processes        |
+| `top`   | Real-time process monitoring        |
+| `htop`  | Enhanced interactive version of top |
+
+## 7) How do you kill a process?
+### Ans: Using kill command: kill PID
+### Force kill Command: kill -9 PID
+### By name Command: pkill process_name
+
+## 8) What is nice and renice?
+### Ans: nice and renice control process priority.
+* Priority range: -20 (highest) to 19 (lowest)
+* Default priority: 0
+### Start process with priority:
+* Command is: nice -n 10 command
+### Change priority of running process:
+* Command is: renice -5 -p PID
 
