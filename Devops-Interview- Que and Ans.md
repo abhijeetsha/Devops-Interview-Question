@@ -626,3 +626,351 @@ Containers run consistently across different environments like development, test
 
 4️⃣ Port Forwarding
 → Debugging only
+
+## 🔹 Terraform (Infrastructure as Code)
+## 1) What is Terraform?
+### Ans: Terraform is an Infrastructure as Code (IaC) tool by HashiCorp used to provision, manage, and version infrastructure using declarative configuration files.
+### It supports:
+  * Cloud providers (AWS, Azure, GCP)
+  * On-prem infrastructure
+  * SaaS tools
+
+## 2) What is Infrastructure as Code?
+### Ans: Infrastructure as Code is the practice of managing infrastructure using code instead of manual processes.
+### Benefits:
+  * Automation
+  * Consistency
+  * Version control
+  * Faster deployments
+  * Easy rollback 
+
+## 3) What are Terraform providers?
+### Ans: Providers are plugins that allow Terraform to interact with APIs of cloud providers and services.
+### Examples:
+* aws
+* kubernetes
+* helm
+* github
+### Each provider defines the resources and data sources it supports.
+
+## 4) Difference between resource and data source?
+### Ans:
+| Resource                          | Data Source                   |
+| --------------------------------- | ----------------------------- |
+| Creates or manages infrastructure | Reads existing infrastructure |
+| Changes state                     | Does not modify state         |
+| Example: `aws_instance`           | Example: `data.aws_ami`       |
+
+
+## 5) What is Terraform state?
+### Ans: Terraform state is a file (terraform.tfstate) that maps Terraform resources to real infrastructure.
+### It helps Terraform:
+  * Track resource changes
+  * Perform updates & deletes
+  * Avoid duplication
+
+## 6) Where do you store Terraform state in production?
+### Ans: In production, Terraform state should be stored in a remote backend like:
+  * AWS S3 (with DynamoDB for locking)
+  * Terraform Cloud
+  * Azure Blob Storage
+  * 👉 Never store state locally in production.
+
+## 7) What is remote backend?
+### Ans: A remote backend stores Terraform state remotely and enables:
+* Team collaboration
+* State locking
+* Secure storage
+### Example:
+* S3 + DynamoDB (lock & consistency)
+
+## 8) Difference between terraform plan and apply?
+### Ans: 
+| terraform plan       | terraform apply           |
+| -------------------- | ------------------------- |
+| Shows execution plan | Applies changes           |
+| No infra changes     | Creates/updates resources |
+| Used for review      | Used for deployment       |
+
+
+## 9) What is a Terraform module?
+### Ans: A module is a reusable collection of Terraform configurations.
+### Benefits:
+* Code reusability
+* Standardization
+* Easier maintenance
+### Tyes:
+* Root module
+* Child module
+* Registry modules
+
+## 10) What are workspaces?
+### Ans: Workspaces allow multiple state files from the same configuration.
+### Use cases:
+* dev / staging / prod environments
+* Command:
+  * terraform workspace new dev
+  * terraform workspace select prod
+ 
+## 11) How do you manage secrets in Terraform?
+### Ans: Best practices:
+  * Use environment variables
+  * Use AWS Secrets Manager / Parameter Store 
+  * Use terraform.tfvars (not committed)
+  * Encrypt state files
+  * Avoid hardcoding secrets
+
+## 12) What happens if Terraform state is deleted?
+### Ans: If state is deleted:
+* Terraform loses track of existing infrastructure
+* Next apply may try to recreate resources
+* Can cause duplication or conflicts
+### 👉 Recovery:
+* Restore state from backup
+* Use terraform import
+
+## 🔹 CI/CD Interview Questions
+## 1) What is CI/CD?
+### Ans: CI/CD stands for Continuous Integration and Continuous Deployment/Delivery.
+* CI: Automatically build & test code
+* CD: Automatically deploy application
+
+## 2) What are the benefits of CI/CD?
+### Ans: 
+* Faster releases
+* Early bug detection
+* Automation
+* Consistent deployments
+* Reduced manual errors
+
+## 3) What are common CI/CD tools?
+### Ans: 
+* Jenkins
+* GitHub Actions
+* GitLab CI/CD
+* AWS CodePipeline
+* Azure DevOps
+
+## 4) What is a CI/CD pipeline?
+### Ans: A pipeline is an automated workflow that includes:
+* Code checkout
+* Build
+* Test
+* Security scan
+* Deploy
+
+## 5) Difference between Continuous Delivery and Continuous Deployment?
+### Ans: 
+| Continuous Delivery | Continuous Deployment |
+| ------------------- | --------------------- |
+| Manual approval     | Fully automated       |
+| Safer               | Faster                |
+| Production optional | Always to production  |
+
+## 6) How do you secure CI/CD pipelines?
+### Ans: 
+* Use secrets managers
+* Least-privilege IAM roles
+* Secure credentials
+* Code scanning
+* Pipeline approvals
+
+## 7) How does CI/CD integrate with Docker & Kubernetes?
+### Ans: 
+* CI builds Docker images
+* Pushes to container registry
+* CD deploys to Kubernetes using:
+  * Helm
+  * kubectl
+  * ArgoCD
+
+## ✅ Jenkins Interview Questions
+## 1) What is Jenkins?
+### Ans: Jenkins is an open-source CI/CD automation tool used to build, test, and deploy applications.
+### It helps automate:
+* Code build
+* Unit testing
+* Docker image creation
+* Deployment to servers or Kubernetes
+### Jenkins supports 1000+ plugins and integrates easily with Git, Docker, AWS, and Kubernetes. 
+
+## 2) What is a Jenkins pipeline?
+### Ans: A Jenkins Pipeline is a set of automated steps written as code to define the CI/CD process.
+### It includes stages such as:
+* Checkout
+* Build
+* Test
+* Deploy
+### Pipelines are version-controlled and stored in Git.
+
+## 3) Difference between Declarative and Scripted pipeline?
+### Ans: Best practice: Use Declarative pipelines for standard CI/CD.
+| Declarative Pipeline         | Scripted Pipeline       |
+| ---------------------------- | ----------------------- |
+| Simple & structured          | Flexible & powerful     |
+| Uses predefined syntax       | Uses Groovy scripting   |
+| Easier to maintain           | Complex logic supported |
+| Preferred for most use cases | Used for advanced logic |
+
+## 4) What is a Jenkinsfile?
+### Ans: A Jenkinsfile is a text file that defines the Jenkins pipeline.
+* Stored in source code repository
+* Written in Groovy
+* Enables Pipeline as Code
+
+## 5) How do you secure Jenkins?
+### Ans: Security best practices:
+* Enable role-based access control
+* Use Jenkins credentials store
+* Integrate with LDAP / Active Directory
+* Use HTTPS (SSL)
+* Restrict agent permissions
+* Regular plugin updates
+
+## 6) How do you integrate Jenkins with Git?
+### Ans: Steps:
+* Install Git plugin
+* Configure Git repository URL
+* Add SSH key or access token
+* Configure webhook for auto-trigger
+* Jenkins pulls code on commit
+### Supported Git platforms:
+* GitHub
+* GitLab
+* Bitbucket
+
+## 7) How do you deploy applications using Jenkins?
+### Ans: Jenkins deploys apps by:
+* Building artifacts (JAR/Docker image)
+* Pushing image to registry
+### Deploying using:
+* SSH
+* Ansible
+* Docker
+* Kubernetes (kubectl/Helm)
+* AWS services
+### Example:
+* Jenkins → Docker → ECR → EKS
+
+## ✅ GitHub Actions / GitLab CI Interview Questions
+## 1) What is CI/CD?
+### Ans: CI/CD stands for Continuous Integration and Continuous Deployment/Delivery.
+* CI: Automatically build and test code on every commit
+* CD: Automatically deploy applications to staging/production
+### Goal: faster, reliable, and automated software delivery.
+
+## 2) Difference between GitHub Actions and Jenkins?
+### Ans: Jenkins is more flexible; GitHub Actions is easier to manage.
+| GitHub Actions         | Jenkins                    |
+| ---------------------- | -------------------------- |
+| Cloud-native           | Self-hosted                |
+| YAML-based workflows   | Groovy pipelines           |
+| Integrated with GitHub | Plugin-based               |
+| Less maintenance       | Requires server management |
+
+
+## 3) What is a workflow in GitHub Actions?
+### Ans: A workflow is an automated process defined in a YAML file under:
+### Command: .github/workflows/
+### It contains:
+* Triggers (push, PR, schedule)
+* Jobs
+* Steps
+* Runners
+
+## 3) What are runners?
+### Ans: Runners are servers that execute CI/CD jobs.
+### Types:
+* GitHub-hosted runners
+* Self-hosted runners
+* They run tasks like build, test, and deploy.
+
+## 4) What is a pipeline in GitLab CI?
+### Ans: A pipeline is a set of jobs defined in .gitlab-ci.yml.
+### It runs in stages, such as:
+* build
+* test
+* deploy
+### Triggered on commits, merge requests, or schedules.
+
+## 5) How do you store secrets in CI/CD?
+### Ans: Best practices:
+* Use GitHub Secrets / GitLab CI Variables
+* Use cloud secret managers (AWS Secrets Manager)
+* Never hardcode credentials
+* Restrict access & rotate secrets
+* Encrypt secrets at rest
+
+## 6) How do you implement rollback in CI/CD?
+### Ans: Rollback methods:
+* Kubernetes rolling rollback (kubectl rollout undo)
+* Blue-Green deployment
+* Canary deployment
+* Versioned artifacts/images
+* Rollback is triggered when health checks fail.
+
+## 7) How do you deploy to AWS using CI/CD?
+### Ans: Typical flow:
+* CI builds application
+* Create Docker image
+* Push image to ECR
+* Deploy to EKS / EC2 / ECS
+* Validate using health checks
+### Tools:
+* GitHub Actions / Jenkins
+* Terraform
+* kubectl / Helm
+
+## ⭐ Scenario-Based DevOps Questions (Very Important)
+## 1) How would you deploy a Java application on AWS using Docker & Kubernetes?
+### Ans: Steps:
+* Build Java app using Maven
+* Create Docker image
+* Push image to Amazon ECR
+* Create Kubernetes manifests
+* Deploy to EKS using kubectl/Helm
+* Expose using ALB Ingress
+
+## 2) How do you design high availability architecture in AWS?
+### Ans: 
+* Use Multi-AZ
+* Application Load Balancer
+* Auto Scaling Groups
+* RDS Multi-AZ
+* EKS with multiple nodes
+* Route 53 health checks
+
+## 3) How do you automate infrastructure creation using Terraform?
+### Ans: 
+* Write Terraform code for AWS resources
+* Use remote backend (S3 + DynamoDB)
+* Use modules for reusability
+* Apply via CI/CD pipeline
+* Version control in Git 
+
+## 4) How do you implement zero-downtime deployment?
+### Ans: Methods:
+* Rolling updates
+* Blue-Green deployment
+* Canary deployment
+* Load balancer health checks
+* Kubernetes readiness probes
+* How do you troubleshoot a pod not starting?
+
+## 5) How do you secure CI/CD pipelines?
+### Ans: Security practices:
+* Least-privilege IAM roles
+* Secure secrets management
+* Code scanning & SAST
+* Image vulnerability scanning
+* Approval gates
+* Audit logging
+
+## 6) How do you troubleshoot a pod not starting?
+### Ans: Steps:
+* kubectl get pods
+* kubectl describe pod
+* Check events & logs
+* Validate image & resources
+* Check ConfigMaps/Secrets
+* Verify node health
